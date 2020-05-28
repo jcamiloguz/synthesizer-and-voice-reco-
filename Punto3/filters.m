@@ -1,7 +1,9 @@
-%%
-%Pasabandas
+%Juan Felipe Peña 2175507-Juan Manuel Becerra 2175775-Jose Lopez
+%2175425-Juan Camilo Guzman 2175559
+%Grabamos 2 seg y creamos los dos filtros:Pasa banda y pasa bajas, nos decidos por el pasa
+%banda y se cuarda el audio unilateral de la fft^2.
 close all
-Fs = 8000 % Sampling Frequency
+Fs = 8000 
 t=[1:(2*Fs)];
 y = audiorecorder(Fs, 8, 1);
 recordblocking(y,2)
@@ -21,19 +23,22 @@ F2=dfilt.dffir(baja);
 
 xF=filter(F,x);
 xF2=filter(F2,x);
+%reproduce audio crudo
 sound(x,Fs)
 pause(2)
+%reproduce audio filtrado pasabanda
 sound(xF,Fs)
 pause(2)
+%reproduce audio filtrado pasabanda
 sound(xF2,Fs)
 figure
 xfg=xF/(max(abs(xF)));
 plot(t,xfg)
 title('PASA BANDA');
-% figure
-% xfg2=xF2/(max(abs(xF2)));
-% 
-% title('PASA BAJA');
+figure
+xfg2=xF2/(max(abs(xF2)));
+ 
+title('PASA BAJA');
 fouX=fft(xfg);
 figure
 plot(abs(fouX))
@@ -48,4 +53,4 @@ half=fouX(1:length(fouX)/2);
 plot(f,abs(half))
 title('FFT ^2');
 absH=abs(half);
-save('der10','absH')
+%save('','absH') lo usamospara guardar los archivos

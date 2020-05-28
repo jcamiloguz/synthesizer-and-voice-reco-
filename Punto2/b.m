@@ -1,3 +1,7 @@
+%Juan Felipe Peña 2175507-Juan Manuel Becerra 2175775-Jose Lopez
+%2175425-Juan Camilo Guzman 2175559
+%Reproducimos las notas de Amayor de cancion proporcionada con una duracion
+%especifica para cada nota
 fs=8000;
 doce= 440*2.^((0:12)/12);
 Amayor=doce([1 3 5 6 8 10 12 13]);
